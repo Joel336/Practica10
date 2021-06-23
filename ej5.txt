@@ -1,0 +1,22 @@
+function isEven ( num ) { return ( num %2 == 0) ; }
+        function find_recursive (arr , f){
+            if (arr.length > 1){
+                if (f(arr[0]) == true){
+                    return find_recursive(arr.slice(0, 1) , f).concat(find_recursive(arr.slice(1,arr.length), f));
+                }
+                else {
+                    return find_recursive(arr.slice(1,arr.length), f);
+                }
+            }
+            else{
+                if (f(arr[0]) == true){
+                    return arr;
+                }
+                else {
+                    arr=[];
+                    return arr;
+                }
+            }
+        }
+        result = find_recursive ([1 , 3, 5, 4, 2] , isEven );
+        console .log (" resuld find_recursive :", result );
